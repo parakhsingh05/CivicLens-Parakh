@@ -38,8 +38,10 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ success: false, message: err.message || 'Internal Server Error' });
 });
 
-const PORT = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('MongoDB connected:', process.env.MONGODB_URI);
