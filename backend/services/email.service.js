@@ -1,13 +1,16 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Create reusable transporter using Gmail SMTP (free, no Google API needed)
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER,       // Your Gmail address (sender)
-    pass: process.env.GMAIL_APP_PASS,   // Gmail App Password (not your normal Gmail password)
-  },
-});
+const sendOtpEmail = async (toEmail, otp) => {
+  await resend.emails.send({
+    from: 'CivicLens <onboarding@resend.dev>',
+    to: toEmail,
+    subject: 'Verify your email – CivicLens',
+    html: `<div style="font-family:Arial;padding:32px;"><h2 style="color:#ea580c;">CivicLens Email Verification</h2><p>Your verification code:</p><div style="font-size:36px;font-weight:800;letter-spacing:12px;color:#ea580c;">${otp}</div><p>Expires in 10 minutes.</p></div>`,
+  });
+};
+
+module.exports = { sendOtpEmail };
 
 /**
  * Sends a 6-digit OTP to the given email address.
