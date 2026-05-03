@@ -9,23 +9,20 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: function(origin, callback) {
+    const allowed = [
+      'https://civiclens-ochre.vercel.app',
+      'http://localhost:5173',
+    ];
+    // Allow any Vercel preview URL for this project
+    if (!origin || allowed.includes(origin) || origin.includes('parakhsingh05s-projects.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/issues', require('./routes/issue.routes'));
-app.use('/api/admin', require('./routes/admin.routes'));
-app.use('/api/alerts', require('./routes/alert.routes'));
-app.use('/api/upload', require('./routes/upload.routes'));
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'CivicLens API is running', timestamp: new Date() });
-});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
