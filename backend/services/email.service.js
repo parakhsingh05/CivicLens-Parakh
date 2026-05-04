@@ -2,7 +2,7 @@ const https = require('https');
 
 const sendOtpEmail = async (toEmail, otp) => {
   const data = JSON.stringify({
-    from: { email: 'no-reply@test-3m5jgro5vexgdpyo.mlsender.net', name: 'CivicLens' },
+    from: { email: 'no-reply@test-51ndgwv5nerlzqx8.mlsender.net', name: 'CivicLens' },
     to: [{ email: toEmail }],
     subject: 'Verify your email – CivicLens',
     html: `<div style="font-family:Arial;padding:32px;"><h2 style="color:#ea580c;">CivicLens Email Verification</h2><p>Your verification code:</p><div style="font-size:36px;font-weight:800;letter-spacing:12px;color:#ea580c;">${otp}</div><p>Expires in 10 minutes.</p></div>`,
