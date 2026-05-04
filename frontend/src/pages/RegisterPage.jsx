@@ -169,10 +169,7 @@ export default function RegisterPage() {
                 <span className="text-gray-400 text-sm">OR JOIN WITH</span>
                 <div className="flex-1 h-px bg-gray-200" />
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <button className="btn-secondary text-sm py-2.5">G Google</button>
-                <button className="btn-secondary text-sm py-2.5">f Facebook</button>
-              </div>
+              
 
               <p className="text-center text-sm text-gray-500 mt-5">
                 Already have an account?{' '}

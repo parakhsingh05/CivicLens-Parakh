@@ -85,10 +85,7 @@ export default function LoginPage() {
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <button className="btn-secondary text-sm py-2.5">G Google</button>
-            <button className="btn-secondary text-sm py-2.5">🍎 Apple</button>
-          </div>
+         
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Don't have an account?{' '}
