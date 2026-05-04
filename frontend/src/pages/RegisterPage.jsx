@@ -164,11 +164,6 @@ export default function RegisterPage() {
                 </button>
               </form>
 
-              <div className="my-4 flex items-center gap-3">
-                <div className="flex-1 h-px bg-gray-200" />
-                <span className="text-gray-400 text-sm">OR JOIN WITH</span>
-                <div className="flex-1 h-px bg-gray-200" />
-              </div>
               
 
               <p className="text-center text-sm text-gray-500 mt-5">

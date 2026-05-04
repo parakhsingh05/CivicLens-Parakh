@@ -79,11 +79,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="my-5 flex items-center gap-3">
-            <div className="flex-1 h-px bg-gray-200" />
-            <span className="text-gray-400 text-sm">Or continue with</span>
-            <div className="flex-1 h-px bg-gray-200" />
-          </div>
+         
 
          
 
