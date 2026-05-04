@@ -19,10 +19,22 @@ const sendOtpEmail = async (toEmail, otp) => {
         'Content-Length': Buffer.byteLength(data),
       },
     }, (res) => {
-      res.on('data', () => {});
-      res.on('end', () => resolve());
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        console.log('MailerSend status:', res.statusCode);
+        console.log('MailerSend response:', body);
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve();
+        } else {
+          reject(new Error(`MailerSend error ${res.statusCode}: ${body}`));
+        }
+      });
     });
-    req.on('error', reject);
+    req.on('error', (e) => {
+      console.error('MailerSend request error:', e);
+      reject(e);
+    });
     req.write(data);
     req.end();
   });
