@@ -30,7 +30,6 @@ export default function LandingPage() {
         </button>
       </nav>
 
-      {/* 🔥 FULLSCREEN MOBILE MENU (FIXED VERSION) */}
       {open && (
         <div className="fixed inset-0 bg-primary text-white flex flex-col items-center justify-center gap-8 z-50">
 
@@ -74,9 +73,9 @@ export default function LandingPage() {
 
           <Link 
             to="/login" 
-            className="w-full md:w-auto border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
+            className="w-full md:w-auto bg-white text-primary font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
           >
-            Sign In
+            Sign In  <ArrowRight size={16} />
           </Link>
         </div>
       </section>
@@ -134,7 +133,7 @@ export default function LandingPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link 
             to="/register" 
-            className="w-full sm:w-auto bg-primary-800 text-white font-semibold px-8 py-3 rounded-full flex items-center justify-center gap-2"
+            className="w-full sm:w-auto border-2 border-white/50 text-white font-semibold px-8 py-3 rounded-full flex items-center justify-center gap-2"
           >
             Citizen Login / Sign Up
           </Link>
@@ -150,7 +149,7 @@ export default function LandingPage() {
 
       {/* FOOTER */}
       <footer className="text-center py-6 text-gray-400 text-sm border-t">
-        <p>© 2026 CivicLens</p>
+        <p> 2026 CivicLens</p>
         <p className="mt-2 max-w-2xl mx-auto text-xs text-gray-500 leading-relaxed">
     CivicLens is a college project created for educational and demonstration purposes.
     Reports submitted through this platform are not connected to real government

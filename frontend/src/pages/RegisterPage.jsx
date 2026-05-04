@@ -107,7 +107,7 @@ export default function RegisterPage() {
         <h2 className="text-4xl font-extrabold leading-tight mb-4">Empower your<br />community.</h2>
         <p className="text-white/70 mb-6">Report local issues, track progress in real-time, and collaborate with neighbours to build a better city.</p>
         <div className="space-y-2">
-          {['Quick Reporting — Submit issues in seconds.', 'Transparent Tracking — Follow reports to resolution.'].map(f => (
+          {['Quick Reporting - Submit issues in seconds.', 'Transparent Tracking - Follow reports to resolution.'].map(f => (
             <div key={f} className="flex items-center gap-2 text-white/80 text-sm">
               <div className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center text-xs">✓</div>
               {f}
